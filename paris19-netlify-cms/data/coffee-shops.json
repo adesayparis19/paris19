@@ -1,0 +1,108 @@
+{
+  "coffeeShops": [
+    {
+      "id": "oh-my-cappuccino",
+      "name": "Oh My Cappuccino",
+      "neighborhood": "Buttes-Chaumont",
+      "description": "Niché rue Sadi Lecointe à deux pas des Buttes-Chaumont, ce coffee shop intimiste ouvert en 2024 est tenu par Magda (championne de France de Latte Art 2016) et Nir qui torrèfie sur place. Babkas polonaises maison, cappuccinos parfaits et ambiance simple et conviviale.",
+      "address": "3 rue Sadi Lecointe, 75019",
+      "metro": "Jaurès, Buttes-Chaumont",
+      "hours": "Lun-Ven 8h-18h · Sam 9h-14h",
+      "tags": ["Torréfaction maison", "Latte Art", "Babkas polonaises"],
+      "priority": 3,
+      "ambiance": "Intimiste, apaisante",
+      "section": "19e"
+    },
+    {
+      "id": "koko-coffee-shop",
+      "name": "KOKO Coffee Shop",
+      "neighborhood": "Canal de l'Ourcq",
+      "description": "Coffee shop au concept japonais installé depuis 2016 au bord du canal de l'Ourcq. La spécialité ? Le matcha sous toutes ses formes, accompagné de pâtisseries asiatiques délicates. Terrasse idéale aux beaux jours avec vue sur le canal. Le soir, KOKO se transforme en bistro japonais.",
+      "address": "14 quai de la Loire, 75019",
+      "metro": "Laumière, Ourcq",
+      "hours": "Lun-Ven 8h30-18h · Sam-Dim 9h30-18h30",
+      "tags": ["Spécialité Matcha", "Terrasse canal", "Bistro japonais"],
+      "priority": 3,
+      "ambiance": "Zen, terrasse vue canal",
+      "section": "19e"
+    },
+    {
+      "id": "buna-bet-cafe-366",
+      "name": "Buna Bet - Café 366",
+      "neighborhood": "Laumière",
+      "description": "Coffee shop intimiste rue de Meaux tenu par des passionnés de torréfaction artisanale. Leur blend signature marie Brésil et Guatemala. Les cookies au sésame noir et le gâteau à l'orange font partie des incontournables, tout comme le matcha latte très apprécié des habitués.",
+      "address": "102 rue de Meaux, 75019",
+      "metro": "Laumière",
+      "hours": "Lun 8h-14h · Mar-Ven 8h-19h · Sam 9h-18h · Dim 9h-14h",
+      "tags": ["Torréfaction artisanale", "Cookies sésame noir", "Matcha latte"],
+      "priority": 3,
+      "ambiance": "Intimiste, cosy",
+      "section": "19e"
+    },
+    {
+      "id": "noa-cafe",
+      "name": "Noa Café",
+      "neighborhood": "Jourdain",
+      "description": "Le petit nouveau du quartier (fin 2024) cultive une esthétique scandinave minimaliste avec ses tons clairs et son mobilier en bois blond. Cafés de spécialité, matcha, chocolat chaud et douceurs maison dans une ambiance apaisante. L'équipe jeune et passionnée soigne chaque détail.",
+      "address": "6 rue Melingue, 75019",
+      "metro": "Jourdain",
+      "hours": "Lun-Dim 8h30-18h",
+      "tags": ["Scandinave", "Brunch", "Nouveau 2024"],
+      "priority": 2,
+      "ambiance": "Hygge, minimaliste",
+      "section": "19e"
+    },
+    {
+      "id": "mardi",
+      "name": "Mardi",
+      "neighborhood": "Belleville",
+      "description": "Fusion nippo-danoise ouverte en 2022 qui marie cafés de spécialité pointus (Friedhats, Prolog Coffee, April Coffee) et pâtisseries originales. Les kanelbullar scandinaves et le fameux Danish sandwich sont devenus cultes dans le quartier. Machine La Marzocco, bois blond, ambiance hygge.",
+      "address": "29 rue de la Villette, 75019",
+      "metro": "Jourdain",
+      "hours": "Lun-Ven 8h30-18h · Sam-Dim 9h30-18h",
+      "tags": ["Nippo-danois", "Kanelbullar", "Danish sandwich"],
+      "priority": 3,
+      "ambiance": "Épurée, hygge",
+      "section": "19e"
+    },
+    {
+      "id": "epicentre-coffee-shop",
+      "name": "Epicentre Coffee Shop",
+      "neighborhood": "Canal de l'Ourcq",
+      "description": "Coffee shop avec grande terrasse donnant sur le canal de l'Ourcq, parfait pour une pause ensoleillée. Propose une restauration créative et végétarienne qui change des classiques. Attention aux horaires limités (10h-15h). Géré par Typick Cafe (société Epicentre N1), ouvert juillet 2024.",
+      "address": "37 quai de la Seine, 75019",
+      "metro": "Riquet",
+      "hours": "10h-15h",
+      "tags": ["Terrasse canal", "Végétarien", "Créatif"],
+      "priority": 2,
+      "ambiance": "Décontractée, vue canal",
+      "section": "19e"
+    },
+    {
+      "id": "koni-coffee",
+      "name": "Koni Coffee",
+      "neighborhood": "Belleville (20e, frontière 19e)",
+      "description": "À la frontière du 19e et 20e, ce minuscule coffee shop de 20m² installé dans une ancienne laverie dégage une ambiance Brooklyn assumée. Cafés Terres de Café impeccablement préparés. La spécialité \"L'Edith\" (espresso + crème à la pistache, hommage à Piaf) et le cookie chocolat noir fleur de sel sont légendaires.",
+      "address": "70 rue de Belleville, 75020",
+      "metro": "Jourdain, Pyrénées",
+      "hours": "Lun-Ven 8h30-17h30 · Sam-Dim 9h-18h",
+      "tags": ["Brooklyn", "Terres de Café", "Cookie légendaire"],
+      "priority": 2,
+      "ambiance": "Branchée, Brooklyn",
+      "section": "proximite"
+    },
+    {
+      "id": "bambin-coffee-shop",
+      "name": "Bambin Coffee Shop",
+      "neighborhood": "Belleville (20e, frontière 19e)",
+      "description": "Coffee shop kids-friendly ouvert en janvier 2025 à Belleville. Fondé par Astrid Rochette-Monnoury (pâtissière Ferrandi) et Pénélope Silice (ex-humanitaire). Espace jeux de 8m² pour les 0-5 ans, café de spécialité, pâtisseries maison et brunch savoureux. Chaises hautes, table à langer, tout pour les parents. No laptops le weekend.",
+      "address": "40 rue de Tourtille, 75020",
+      "metro": "Jourdain",
+      "hours": "Mer-Ven 8h30-17h30 · Sam-Dim 9h30-17h30",
+      "tags": ["Kids-friendly", "Espace jeux", "Brunch", "Nouveau 2025"],
+      "priority": 2,
+      "ambiance": "Familiale, accueillante",
+      "section": "proximite"
+    }
+  ]
+}

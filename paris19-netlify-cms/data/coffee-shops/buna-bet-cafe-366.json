@@ -1,0 +1,13 @@
+{
+  "id": "buna-bet-cafe-366",
+  "name": "Buna Bet - Café 366",
+  "neighborhood": "Laumière",
+  "description": "Coffee shop intimiste rue de Meaux tenu par des passionnés de torréfaction artisanale. Leur blend signature marie Brésil et Guatemala. Les cookies au sésame noir et le gâteau à l'orange font partie des incontournables, tout comme le matcha latte très apprécié des habitués.",
+  "address": "102 rue de Meaux, 75019",
+  "metro": "Laumière",
+  "hours": "Lun 8h-14h · Mar-Ven 8h-19h · Sam 9h-18h · Dim 9h-14h",
+  "tags": ["Torréfaction artisanale", "Cookies sésame noir", "Matcha latte"],
+  "priority": "3",
+  "ambiance": "Intimiste, cosy",
+  "section": "19e"
+}

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street Art du 19e - Paris19</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beige-light: #F5F1E8;
+            --beige-warm: #E8DCC8;
+            --green-sage: #8B9D83;
+            --green-deep: #5A6B52;
+            --terracotta: #C87B5A;
+            --charcoal: #2C2C2C;
+            --white: #FFFFFF;
+            --gold: #D4AF37;
+            --purple: #8B5A9D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: var(--beige-light);
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--beige-warm);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--terracotta);
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--purple) 0%, #A66FB5 100%);
+            color: var(--white);
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 3rem;
+            transition: gap 0.3s ease;
+        }
+
+        .back-link:hover {
+            gap: 1rem;
+        }
+
+        .intro-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .warning-box {
+            background-color: #FFF9E6;
+            border-left: 4px solid #FFA500;
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+            border-radius: 4px;
+        }
+
+        .warning-box p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Legend */
+        .legend {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 4px;
+            margin-bottom: 3rem;
+            border: 1px solid var(--beige-warm);
+        }
+
+        .legend h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .legend-items {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        /* Artwork Card */
+        .artwork-card {
+            background-color: var(--white);
+            border-radius: 4px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--beige-warm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .artwork-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .artwork-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+
+        .artwork-title-group {
+            flex: 1;
+        }
+
+        .artwork-stars {
+            color: var(--gold);
+            font-size: 1.3rem;
+            white-space: nowrap;
+        }
+
+        .artwork-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.9rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: var(--charcoal);
+        }
+
+        .artwork-artist {
+            color: var(--purple);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .artwork-year {
+            color: var(--green-deep);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .artwork-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+        }
+
+        .artwork-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--beige-warm);
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .info-label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--green-deep);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            color: var(--charcoal);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--charcoal);
+            color: var(--beige-light);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .artwork-card {
+                padding: 1.5rem;
+            }
+
+            .artwork-header {
+                flex-direction: column;
+            }
+
+            .artwork-name {
+                font-size: 1.6rem;
+            }
+
+            .artwork-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Paris19</a>
+            <ul class="nav-links">
+                <li><a href="index.html#decouvrir">DÃ©couvrir</a></li>
+                <li><a href="index.html#vivre">Vivre</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Street Art</h1>
+        <p>Les plus belles fresques et Å“uvres urbaines du 19e arrondissement</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content-container">
+        <a href="index.html#decouvrir" class="back-link">â† Retour aux parcours</a>
+
+        <p class="intro-text">
+            Le 19e arrondissement s'est affirmÃ© comme un territoire majeur du street art parisien. Des fresques monumentales du mur Rosa Parks aux Å“uvres colorÃ©es bordant le canal de l'Ourcq, l'art urbain habille les faÃ§ades et donne une nouvelle identitÃ© au quartier. Voici les Å“uvres incontournables Ã  dÃ©couvrir.
+        </p>
+
+        <div class="warning-box">
+            <p><strong>Note importante :</strong> Le street art est par nature Ã©phÃ©mÃ¨re. Certaines fresques peuvent avoir disparu, Ã©tÃ© recouvertes ou remplacÃ©es. Cette liste reflÃ¨te l'Ã©tat des lieux dÃ©but 2026, mais nous vous encourageons Ã  explorer le quartier pour dÃ©couvrir les nouvelles crÃ©ations qui apparaissent rÃ©guliÃ¨rement.</p>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <h3>LÃ©gende des prioritÃ©s</h3>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <span class="stars">â­â­â­</span>
+                    <span>Incontournable</span>
+                </div>
+                <div class="legend-item">
+                    <span class="stars">â­â­</span>
+                    <span>RecommandÃ©</span>
+                </div>
+                <div class="legend-item">
+                    <span class="stars">â­</span>
+                    <span>Pour les passionnÃ©s</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Artwork 1: Mur Rosa Parks -->
+        <article class="artwork-card">
+            <div class="artwork-header">
+                <div class="artwork-title-group">
+                    <h2 class="artwork-name">Le Mur Rosa Parks</h2>
+                    <p class="artwork-artist">Artistes multiples Â· Projet collectif</p>
+                    <p class="artwork-year">InaugurÃ© en 2015 Â· Ã‰volutif</p>
+                </div>
+                <div class="artwork-stars">â­â­â­</div>
+            </div>
+            <div class="artwork-description">
+                <p>
+                    Le mur Rosa Parks est le plus grand projet de street art du 19e arrondissement. InaugurÃ© en 2015 lors de l'Ã©vÃ©nement "Rosa Parks fait le mur", ce mur de 493 mÃ¨tres de long situÃ© rue d'Aubervilliers rend hommage Ã  l'Afro-AmÃ©ricaine Rosa Parks, figure emblÃ©matique du mouvement des droits civiques aux Ã‰tats-Unis. Ã€ la frontiÃ¨re entre le 18e et le 19e arrondissement, il rassemble les Å“uvres de dizaines d'artistes franÃ§ais et internationaux.
+                </p>
+                <p>
+                    Parmi les artistes ayant contribuÃ© au projet, on trouve Kashink (avec ses personnages bigarrÃ©s aux moustaches emblÃ©matiques), Pboy, Tatyana Fazlalizade (connue pour la sÃ©rie Netflix "Nola Darling" de Spike Lee), Zepha, Combo et JonOne. Le mur Ã©volue rÃ©guliÃ¨rement avec de nouvelles fresques qui viennent remplacer ou complÃ©ter les anciennes, ce qui en fait un lieu vivant et en constante transformation. C'est un vÃ©ritable musÃ©e Ã  ciel ouvert qui mÃ©rite une visite complÃ¨te.
+                </p>
+            </div>
+            <div class="artwork-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">Rue d'Aubervilliers (entre 18e et 19e)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° Riquet ou Marx Dormoy</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Longueur</span>
+                    <span class="info-value">493 mÃ¨tres</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Temps de visite</span>
+                    <span class="info-value">30-45 minutes pour tout voir</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Artwork 2: Canal de l'Ourcq -->
+        <article class="artwork-card">
+            <div class="artwork-header">
+                <div class="artwork-title-group">
+                    <h2 class="artwork-name">Fresques du Canal de l'Ourcq</h2>
+                    <p class="artwork-artist">DaCruz, Psy, Marko 93, et autres</p>
+                    <p class="artwork-year">AnnÃ©es 2010 Â· Å’uvres multiples</p>
+                </div>
+                <div class="artwork-stars">â­â­â­</div>
+            </div>
+            <div class="artwork-description">
+                <p>
+                    Le long de la rue de l'Ourcq, non loin du canal du mÃªme nom, s'Ã©tend un mur bigarrÃ© qui a Ã©tÃ© rÃ©investi par plusieurs artistes du 19e arrondissement. Chacun apporte son style et ses couleurs distinctives : on reconnaÃ®t les masques ethniques caractÃ©ristiques de DaCruz, les personnages dansants et Ã©nergiques du graffeur Psy, ainsi que les portraits lumineux et vibrants de Marko 93, artiste reconnu pour ses calligraphies et ses fresques monumentales.
+                </p>
+                <p>
+                    Cette concentration d'Å“uvres crÃ©Ã©e une vÃ©ritable galerie d'art urbain accessible Ã  tous. Le contraste entre les styles â€“ du figuratif aux motifs abstraits, des couleurs vives aux noir et blanc â€“ offre un panorama de la diversitÃ© du street art contemporain. La proximitÃ© du canal ajoute un cadre agrÃ©able pour une balade street art, permettant de combiner promenade le long de l'eau et dÃ©couverte artistique.
+                </p>
+            </div>
+            <div class="artwork-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">Rue de l'Ourcq, 75019</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° Ourcq (ligne 5)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Artistes principaux</span>
+                    <span class="info-value">DaCruz, Psy, Marko 93</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Ã€ combiner avec</span>
+                    <span class="info-value">Balade le long du canal</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Artwork 3: Terrains de basket -->
+        <article class="artwork-card">
+            <div class="artwork-header">
+                <div class="artwork-title-group">
+                    <h2 class="artwork-name">Terrains de Basket Artistiques</h2>
+                    <p class="artwork-artist">Artistes contemporains</p>
+                    <p class="artwork-year">2020s Â· Art participatif</p>
+                </div>
+                <div class="artwork-stars">â­â­</div>
+            </div>
+            <div class="artwork-description">
+                <p>
+                    Dans le cadre d'un projet municipal visant Ã  embellir les espaces sportifs, plusieurs terrains de basket du 19e arrondissement ont Ã©tÃ© transformÃ©s en vÃ©ritables Å“uvres d'art. Le boulevard SÃ©rurier accueille des terrains 3x3 dÃ©corÃ©s par des artistes qui ont rÃ©inventÃ© les marquages au sol avec des motifs colorÃ©s et gÃ©omÃ©triques. Le stade Jules-LadoumÃ¨gue possÃ¨de Ã©galement des terrains artistiques qui attirent autant les joueurs que les amateurs d'art urbain.
+                </p>
+                <p>
+                    Ces installations dÃ©montrent que le street art peut s'intÃ©grer aux Ã©quipements sportifs de quartier, crÃ©ant des espaces Ã  la fois fonctionnels et esthÃ©tiques. Les couleurs vives et les compositions graphiques transforment l'expÃ©rience du jeu tout en offrant des photo-opportunities spectaculaires. C'est une approche novatrice qui mÃªle sport, art et vie de quartier.
+                </p>
+            </div>
+            <div class="artwork-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">Boulevard SÃ©rurier Â· Stade Jules-LadoumÃ¨gue</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° Porte des Lilas, PrÃ© Saint-Gervais</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Type</span>
+                    <span class="info-value">Art au sol Â· Installation sportive</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">ParticularitÃ©</span>
+                    <span class="info-value">Terrains accessibles et jouables</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Artwork 4: Centquatre -->
+        <article class="artwork-card">
+            <div class="artwork-header">
+                <div class="artwork-title-group">
+                    <h2 class="artwork-name">Fresques autour du 104</h2>
+                    <p class="artwork-artist">Artistes variÃ©s</p>
+                    <p class="artwork-year">AnnÃ©es 2010-2020 Â· Ã‰volutif</p>
+                </div>
+                <div class="artwork-stars">â­â­</div>
+            </div>
+            <div class="artwork-description">
+                <p>
+                    Les abords du Centquatre (104), espace culturel majeur du 19e, sont naturellement devenus un lieu d'expression pour les street artists. La rue d'Aubervilliers et les rues adjacentes accueillent rÃ©guliÃ¨rement de nouvelles fresques. Le 104 lui-mÃªme organise parfois des Ã©vÃ©nements street art et soutient la crÃ©ation urbaine, ce qui attire les artistes dans le quartier.
+                </p>
+                <p>
+                    Cette zone est particuliÃ¨rement intÃ©ressante car elle combine art institutionnel (au sein du 104) et art de rue spontanÃ© ou semi-autorisÃ© sur les murs environnants. On y trouve des styles trÃ¨s variÃ©s, des pochoirs minutieux aux grandes compositions murales, tÃ©moignant de la vitalitÃ© crÃ©ative du quartier. Le caractÃ¨re Ã©volutif de ces Å“uvres incite Ã  revenir rÃ©guliÃ¨rement pour dÃ©couvrir les nouveautÃ©s.
+                </p>
+            </div>
+            <div class="artwork-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">Autour du 104 rue d'Aubervilliers</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° Riquet, CrimÃ©e (ligne 7)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Ã€ combiner avec</span>
+                    <span class="info-value">Visite du 104 (expositions gratuites)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Note</span>
+                    <span class="info-value">Å’uvres changeantes, toujours nouveautÃ©s</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Artwork 5: Bassin de La Villette -->
+        <article class="artwork-card">
+            <div class="artwork-header">
+                <div class="artwork-title-group">
+                    <h2>Å’uvres du Bassin de La Villette</h2>
+                    <p class="artwork-artist">Artistes multiples</p>
+                    <p class="artwork-year">AnnÃ©es 2010-2020</p>
+                </div>
+                <div class="artwork-stars">â­â­</div>
+            </div>
+            <div class="artwork-description">
+                <p>
+                    Le bassin de La Villette et ses quais sont progressivement devenus un terrain d'expression pour le street art. Plusieurs Å“uvres ponctuent la promenade le long de l'eau, certaines autorisÃ©es dans le cadre d'Ã©vÃ©nements comme l'Ã‰tÃ© du Canal, d'autres apparues de maniÃ¨re plus spontanÃ©e. Les ponts, murs de soutÃ¨nement et bÃ¢timents industriels reconvertis offrent des supports variÃ©s pour les artistes.
+                </p>
+                <p>
+                    L'intÃ©rÃªt de cette zone rÃ©side dans la combinaison entre patrimoine industriel (entrepÃ´ts, rotonde) et crÃ©ations contemporaines. Le cadre agrÃ©able du bassin en fait un parcours street art idÃ©al Ã  combiner avec une balade ou une pause sur les quais. Certaines Å“uvres dialoguent avec l'architecture historique, crÃ©ant des contrastes intÃ©ressants entre passÃ© et prÃ©sent.
+                </p>
+            </div>
+            <div class="artwork-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">Quais du bassin de La Villette</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° JaurÃ¨s, Stalingrad, LaumiÃ¨re</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Type de parcours</span>
+                    <span class="info-value">Balade le long de l'eau</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Distance</span>
+                    <span class="info-value">~2 km de promenade</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Artwork 6: Belleville street art -->
+        <article class="artwork-card">
+            <div class="artwork-header">
+                <div class="artwork-title-group">
+                    <h2 class="artwork-name">Street Art de Belleville</h2>
+                    <p class="artwork-artist">Artistes de quartier</p>
+                    <p class="artwork-year">AnnÃ©es 2000-2020 Â· Zone historique</p>
+                </div>
+                <div class="artwork-stars">â­</div>
+            </div>
+            <div class="artwork-description">
+                <p>
+                    La partie du 19e arrondissement qui correspond Ã  l'ancien village de Belleville (autour de la rue de Belleville) conserve une tradition de street art plus ancienne et souvent plus underground. Ici, le street art n'est pas toujours monumenta ou institutionnalisÃ©, mais plutÃ´t spontanÃ©, changeant, vivant. Les ruelles, passages et murs de Belleville sont un terrain de jeu pour les graffeurs depuis des dÃ©cennies.
+                </p>
+                <p>
+                    Cette zone est particuliÃ¨rement intÃ©ressante pour les passionnÃ©s qui cherchent Ã  dÃ©couvrir la diversitÃ© des expressions urbaines : tags, pochoirs, collages, interventions diverses. L'esprit est diffÃ©rent des grandes fresques autorisÃ©es â€“ plus brut, plus Ã©phÃ©mÃ¨re, mais tout aussi authentique. C'est le street art dans sa forme la plus traditionnelle, celle qui s'inscrit dans l'histoire du graffiti parisien. Le parc de Belleville lui-mÃªme, bien que principalement dans le 20e, offre aussi quelques belles piÃ¨ces visibles depuis le 19e.
+                </p>
+            </div>
+            <div class="artwork-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">Rue de Belleville et ruelles adjacentes</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° Belleville, PyrÃ©nÃ©es</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Style</span>
+                    <span class="info-value">Underground, spontanÃ©, Ã©volutif</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Public</span>
+                    <span class="info-value">PassionnÃ©s et connaisseurs</span>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Paris19 - Guide de l'est parisien</p>
+        </div>
+    </footer>
+</body>
+</html>
