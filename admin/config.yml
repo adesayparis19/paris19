@@ -1,0 +1,69 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+locale: 'fr'
+
+collections:
+  - name: "coffee_shops"
+    label: "Coffee Shops"
+    label_singular: "Coffee Shop"
+    folder: "data/coffee-shops"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    editor:
+      preview: false
+    fields:
+      - { label: "Nom", name: "name", widget: "string", required: true }
+      - { label: "Quartier", name: "neighborhood", widget: "string", required: true }
+      - { label: "Description", name: "description", widget: "text", required: true, hint: "Décrivez l'ambiance, les spécialités, ce qui rend ce lieu unique" }
+      - { label: "Adresse complète", name: "address", widget: "string", required: true }
+      - { label: "Station de métro", name: "metro", widget: "string", required: false }
+      - { label: "Horaires", name: "hours", widget: "string", required: false, hint: "Ex: Lun-Ven 8h-18h · Sam 9h-14h" }
+      - { label: "Tags", name: "tags", widget: "list", required: false, hint: "Mots-clés pour caractériser le lieu" }
+      - { label: "Priorité", name: "priority", widget: "select", options: ["1", "2", "3"], default: "2", hint: "1 = Pour les passionnés, 2 = Recommandé, 3 = Incontournable" }
+      - { label: "Ambiance", name: "ambiance", widget: "string", required: false }
+      - { label: "Section", name: "section", widget: "select", options: ["19e", "proximite"], default: "19e", hint: "19e = strictement dans le 19e, proximite = à la frontière" }
+      - { label: "ID", name: "id", widget: "string", required: true, hint: "Identifiant unique (ex: oh-my-cappuccino)" }
+
+  - name: "restaurants"
+    label: "Restaurants"
+    label_singular: "Restaurant"
+    folder: "data/restaurants"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    editor:
+      preview: false
+    fields:
+      - { label: "Nom", name: "name", widget: "string", required: true }
+      - { label: "Quartier", name: "neighborhood", widget: "string", required: true }
+      - { label: "Description", name: "description", widget: "text", required: true }
+      - { label: "Type de cuisine", name: "cuisine", widget: "string", required: false }
+      - { label: "Adresse complète", name: "address", widget: "string", required: true }
+      - { label: "Station de métro", name: "metro", widget: "string", required: false }
+      - { label: "Horaires", name: "hours", widget: "string", required: false }
+      - { label: "Fourchette de prix", name: "price_range", widget: "select", options: ["€", "€€", "€€€", "€€€€"], required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Priorité", name: "priority", widget: "select", options: ["1", "2", "3"], default: "2" }
+      - { label: "Ambiance", name: "ambiance", widget: "string", required: false }
+      - { label: "ID", name: "id", widget: "string", required: true }
+
+  - name: "pages"
+    label: "Pages"
+    label_singular: "Page"
+    files:
+      - label: "Page d'accueil"
+        name: "homepage"
+        file: "data/homepage.json"
+        fields:
+          - { label: "Titre principal", name: "title", widget: "string" }
+          - { label: "Sous-titre", name: "subtitle", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Citation mise en avant", name: "highlight_quote", widget: "text" }

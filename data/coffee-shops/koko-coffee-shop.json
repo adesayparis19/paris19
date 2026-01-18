@@ -1,0 +1,13 @@
+{
+  "id": "koko-coffee-shop",
+  "name": "KOKO Coffee Shop",
+  "neighborhood": "Canal de l'Ourcq",
+  "description": "Coffee shop au concept japonais installé depuis 2016 au bord du canal de l'Ourcq. La spécialité ? Le matcha sous toutes ses formes, accompagné de pâtisseries asiatiques délicates. Terrasse idéale aux beaux jours avec vue sur le canal. Le soir, KOKO se transforme en bistro japonais.",
+  "address": "14 quai de la Loire, 75019",
+  "metro": "Laumière, Ourcq",
+  "hours": "Lun-Ven 8h30-18h · Sam-Dim 9h30-18h30",
+  "tags": ["Spécialité Matcha", "Terrasse canal", "Bistro japonais"],
+  "priority": "3",
+  "ambiance": "Zen, terrasse vue canal",
+  "section": "19e"
+}

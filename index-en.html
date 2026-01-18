@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paris19 - East Paris Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beige-light: #F5F1E8;
+            --beige-warm: #E8DCC8;
+            --green-sage: #8B9D83;
+            --green-deep: #5A6B52;
+            --terracotta: #C87B5A;
+            --charcoal: #2C2C2C;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: var(--beige-light);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--beige-warm);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--terracotta);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--terracotta);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .language-selector {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin-left: 2rem;
+        }
+
+        .language-selector a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 2px;
+            transition: background-color 0.3s ease;
+        }
+
+        .language-selector a.active {
+            background-color: var(--terracotta);
+            color: var(--white);
+        }
+
+        .language-selector a:hover:not(.active) {
+            background-color: var(--beige-warm);
+        }
+
+        .language-selector span {
+            color: var(--charcoal);
+            opacity: 0.3;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--beige-light) 0%, var(--beige-warm) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--green-sage) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-50px, 50px) rotate(5deg); }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--green-deep);
+            margin-bottom: 1rem;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid;
+        }
+
+        .btn-primary {
+            background-color: var(--terracotta);
+            color: var(--white);
+            border-color: var(--terracotta);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--terracotta);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--green-deep);
+            border-color: var(--green-deep);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--green-deep);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Section Container */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--green-deep);
+            font-weight: 300;
+        }
+
+        /* Grid Sections */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--beige-warm);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--green-sage) 0%, var(--green-deep) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+            font-family: 'Crimson Pro', serif;
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .card-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+
+        .card-description {
+            color: var(--charcoal);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .card-link {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .card-link:hover {
+            gap: 1rem;
+        }
+
+        /* Highlight Section */
+        .highlight-section {
+            background-color: var(--green-deep);
+            color: var(--white);
+            padding: 5rem 2rem;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 20px,
+                rgba(255, 255, 255, 0.03) 20px,
+                rgba(255, 255, 255, 0.03) 40px
+            );
+            animation: slide 60s linear infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+        }
+
+        .highlight-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .highlight-content h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--charcoal);
+            color: var(--beige-light);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--beige-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--terracotta);
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(245, 241, 232, 0.2);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Decorative elements */
+        .decorative-line {
+            width: 60px;
+            height: 2px;
+            background-color: var(--terracotta);
+            margin: 0 auto 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Paris19</a>
+            <ul class="nav-links">
+                <li><a href="#discover">Discover</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#routes">Routes</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="language-selector">
+                <a href="index.html">FR</a>
+                <span>|</span>
+                <a href="index-en.html" class="active">EN</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Paris19</h1>
+            <p class="subtitle">East Paris Guide</p>
+            <p class="description">Discover the 19th arrondissement differently. From Buttes-Chaumont to La Villette, authentic routes and carefully selected addresses.</p>
+            <div class="cta-buttons">
+                <a href="#routes" class="btn btn-primary">Explore routes</a>
+                <a href="#experience" class="btn btn-secondary">Local spots</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discover Section -->
+    <section class="section" id="discover">
+        <div class="section-header">
+            <h2 class="section-title">Discover the 19th</h2>
+            <div class="decorative-line"></div>
+            <p class="section-subtitle">History, routes and heritage of the arrondissement</p>
+        </div>
+        
+        <!-- Understanding the 19th -->
+        <div style="margin-bottom: 4rem;">
+            <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.8rem; margin-bottom: 2rem; color: var(--charcoal);">ðŸ“– Historical Context</h3>
+            <div class="card" style="max-width: 100%;">
+                <div class="card-image">ðŸ›ï¸</div>
+                <div class="card-content">
+                    <h3 class="card-title">Understanding the 19th</h3>
+                    <p class="card-description">Dive into the fascinating history of the arrondissement, from the 1860 annexation to recent cultural transformations. A journey through five eras that tell the metamorphosis from working-class district to cultural hub.</p>
+                    <a href="comprendre-le-19e-en.html" class="card-link">Discover the history â†’</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Time-based routes -->
+        <div style="margin-bottom: 4rem;">
+            <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.8rem; margin-bottom: 2rem; color: var(--charcoal);">â±ï¸ Routes by Duration</h3>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-image">ðŸš¶</div>
+                    <div class="card-content">
+                        <h3 class="card-title">The 19th in 2 Hours</h3>
+                        <p class="card-description">Express discovery of Buttes-Chaumont park and La MouzaÃ¯a. Perfect for a morning or afternoon in the neighborhood.</p>
+                        <a href="parcours-2-heures-en.html" class="card-link">See the route â†’</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">ðŸ—ºï¸</div>
+                    <div class="card-content">
+                        <h3 class="card-title">The Must-Sees (1 Day)</h3>
+                        <p class="card-description">A full day to explore the major sites: Buttes-Chaumont, La MouzaÃ¯a, Belleville, La Villette basin and park.</p>
+                        <a href="routes-must-see-en.html" class="card-link">See the route â†’</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thematic routes -->
+        <div>
+            <h3 style="font-family: 'Crimson Pro', serif; font-size: 1.8rem; margin-bottom: 2rem; color: var(--charcoal);">ðŸŽ¨ Thematic Routes</h3>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-image">ðŸ­</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Industrial Heritage</h3>
+                        <p class="card-description">Tracing the working-class past: converted slaughterhouses, canals, warehouses and quarries. 8 sites ranked by priority, from the Grande Halle to former factories.</p>
+                        <a href="patrimoine-industriel-en.html" class="card-link">Explore â†’</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">ðŸŽ¨</div>
+                    <div class="card-content">
+                        <h3 class="card-title">Street Art</h3>
+                        <p class="card-description">The most beautiful murals of east Paris: from the Rosa Parks wall (493m) to the works along Canal de l'Ourcq. Urban art and creativity at every corner.</p>
+                        <a href="street-art-en.html" class="card-link">Discover â†’</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlight Section -->
+    <div class="highlight-section">
+        <div class="highlight-content">
+            <h2>East Paris deserves your time</h2>
+            <p>Far from the classic tourist circuits, the 19th offers rare authenticity in Paris. Lively neighborhoods, rich cultural diversity, and generous green spaces.</p>
+        </div>
+    </div>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <div class="section-header">
+            <h2 class="section-title">Experience the 19th</h2>
+            <div class="decorative-line"></div>
+            <p class="section-subtitle">Selected addresses for residents and the curious</p>
+        </div>
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-image">â˜•</div>
+                <div class="card-content">
+                    <h3 class="card-title">Coffee Shops</h3>
+                    <p class="card-description">The best spots for quality coffee, a gourmet brunch, or simply setting up your laptop in a pleasant setting.</p>
+                    <a href="coffee-shops-en.html" class="card-link">Discover â†’</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image">ðŸ½ï¸</div>
+                <div class="card-content">
+                    <h3 class="card-title">Restaurants</h3>
+                    <p class="card-description">From neighborhood bistros to gastronomic tables, a selection of restaurants that showcase the 19th's culinary richness.</p>
+                    <a href="#" class="card-link">Coming soon â†’</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="section-header">
+            <h2 class="section-title">A good address to share?</h2>
+            <div class="decorative-line"></div>
+            <p class="section-subtitle">Share your discoveries and favorites from the 19th</p>
+        </div>
+        <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <p style="margin-bottom: 2rem; opacity: 0.8;">Know a coffee shop that deserves a spot on Paris19? A new restaurant to discover? Feel free to let us know.</p>
+            <a href="mailto:contact@paris19.fr" class="btn btn-primary">Contact us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#discover">Discover</a>
+                <a href="#experience">Experience</a>
+                <a href="#routes">Routes</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Paris19 - East Paris Guide</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
