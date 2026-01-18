@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shops - Paris19</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beige-light: #F5F1E8;
+            --beige-warm: #E8DCC8;
+            --green-sage: #8B9D83;
+            --green-deep: #5A6B52;
+            --terracotta: #C87B5A;
+            --charcoal: #2C2C2C;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: var(--beige-light);
+            color: var(--charcoal);
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--beige-warm);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--terracotta);
+        }
+
+        /* Header */
+        .page-header {
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--terracotta) 0%, #D89078 100%);
+            color: var(--white);
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 3rem;
+            transition: gap 0.3s ease;
+        }
+
+        .back-link:hover {
+            gap: 1rem;
+        }
+
+        .intro-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 4rem;
+            opacity: 0.9;
+            max-width: 700px;
+        }
+
+        /* Coffee Shop Cards */
+        .shop-card {
+            background-color: var(--white);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            border: 1px solid var(--beige-warm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 0;
+        }
+
+        .shop-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .shop-image {
+            background: linear-gradient(135deg, var(--green-sage) 0%, var(--green-deep) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--white);
+            min-height: 250px;
+        }
+
+        .shop-content {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .shop-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .shop-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+
+        .shop-neighborhood {
+            color: var(--green-deep);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .shop-description {
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            flex-grow: 1;
+        }
+
+        .shop-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background-color: var(--beige-warm);
+            color: var(--charcoal);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .shop-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--beige-warm);
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--green-deep);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .detail-value {
+            color: var(--charcoal);
+            font-size: 0.95rem;
+        }
+
+        /* Highlight Quote */
+        .highlight-quote {
+            background-color: var(--green-deep);
+            color: var(--white);
+            padding: 3rem 2rem;
+            margin: 4rem 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .highlight-quote blockquote {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .highlight-quote cite {
+            display: block;
+            margin-top: 1rem;
+            font-style: normal;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--charcoal);
+            color: var(--beige-light);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-bottom {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .shop-card {
+                grid-template-columns: 1fr;
+            }
+
+            .shop-image {
+                min-height: 200px;
+            }
+
+            .shop-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .shop-content {
+                padding: 1.5rem;
+            }
+
+            .shop-name {
+                font-size: 1.6rem;
+            }
+
+            .highlight-quote blockquote {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Paris19</a>
+            <ul class="nav-links">
+                <li><a href="index.html#decouvrir">DÃ©couvrir</a></li>
+                <li><a href="index.html#vivre">Vivre</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Coffee Shops</h1>
+        <p>Les meilleures adresses pour un cafÃ© de qualitÃ© dans le 19e</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content-container">
+        <a href="index.html#vivre" class="back-link">â† Retour aux rubriques</a>
+
+        <p class="intro-text">
+            Le 19e arrondissement a vu fleurir ces derniÃ¨res annÃ©es une scÃ¨ne cafÃ© de qualitÃ©, entre torrÃ©facteurs exigeants et espaces cosy oÃ¹ il fait bon s'installer. Voici notre sÃ©lection d'adresses oÃ¹ le cafÃ© est pris au sÃ©rieux.
+        </p>
+
+        <!-- Coffee Shop 1 -->
+        <article class="shop-card">
+            <div class="shop-image">â˜•</div>
+            <div class="shop-content">
+                <div class="shop-header">
+                    <h2 class="shop-name">CafÃ© Craft</h2>
+                    <p class="shop-neighborhood">Buttes-Chaumont</p>
+                </div>
+                <div class="shop-tags">
+                    <span class="tag">CafÃ© de spÃ©cialitÃ©</span>
+                    <span class="tag">Brunch</span>
+                    <span class="tag">WiFi</span>
+                    <span class="tag" style="background-color: var(--terracotta); color: var(--white);">ðŸ“– Portrait</span>
+                </div>
+                <p class="shop-description">
+                    NichÃ© Ã  deux pas du parc des Buttes-Chaumont, CafÃ© Craft est devenu une institution pour les amateurs de bon cafÃ©. La torrÃ©faction est faite sur place, et le rÃ©sultat est Ã  la hauteur : des arÃ´mes complexes, une extraction parfaite. L'espace lumineux avec ses grandes tables en bois massif invite Ã  s'installer pour travailler ou simplement savourer. Le brunch du week-end est excellent, avec des produits locaux et de saison.
+                </p>
+                <div style="margin-bottom: 1.5rem;">
+                    <a href="portrait-cafe-craft.html" style="color: var(--terracotta); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem;">
+                        ðŸ“– Lire le portrait approfondi â†’
+                    </a>
+                </div>
+                <div class="shop-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Adresse</span>
+                        <span class="detail-value">24 rue Botzaris, 75019</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Horaires</span>
+                        <span class="detail-value">Lun-Ven 8h-18h, Sam-Dim 9h-19h</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Prix moyen</span>
+                        <span class="detail-value">CafÃ© 3.50â‚¬ Â· Brunch 18â‚¬</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Ambiance</span>
+                        <span class="detail-value">Calme, idÃ©al pour travailler</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Coffee Shop 2 -->
+        <article class="shop-card">
+            <div class="shop-image">â˜•</div>
+            <div class="shop-content">
+                <div class="shop-header">
+                    <h2 class="shop-name">Le Loustic</h2>
+                    <p class="shop-neighborhood">Belleville</p>
+                </div>
+                <div class="shop-tags">
+                    <span class="tag">TorrÃ©faction artisanale</span>
+                    <span class="tag">PÃ¢tisserie maison</span>
+                </div>
+                <p class="shop-description">
+                    Pionnier du cafÃ© de spÃ©cialitÃ© Ã  Paris, Le Loustic a ouvert une seconde adresse dans le 19e qui honore l'esprit de la maison mÃ¨re. Ici, chaque dÃ©tail compte : sÃ©lection rigoureuse des grains, maÃ®trise de l'extraction, latte art soignÃ©. L'Ã©quipe passionnÃ©e prend le temps d'expliquer les origines et particularitÃ©s de chaque cafÃ©. Les pÃ¢tisseries faites maison accompagnent parfaitement votre pause. Un incontournable pour les puristes.
+                </p>
+                <div class="shop-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Adresse</span>
+                        <span class="detail-value">40 rue de Belleville, 75019</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Horaires</span>
+                        <span class="detail-value">Lun-Ven 8h-17h, Sam-Dim 9h-18h</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Prix moyen</span>
+                        <span class="detail-value">CafÃ© 3.80â‚¬ Â· PÃ¢tisserie 4â‚¬</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Ambiance</span>
+                        <span class="detail-value">Conviviale, comptoir animÃ©</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Coffee Shop 3 -->
+        <article class="shop-card">
+            <div class="shop-image">â˜•</div>
+            <div class="shop-content">
+                <div class="shop-header">
+                    <h2 class="shop-name">Beans on Fire</h2>
+                    <p class="shop-neighborhood">La Villette</p>
+                </div>
+                <div class="shop-tags">
+                    <span class="tag">CafÃ© de spÃ©cialitÃ©</span>
+                    <span class="tag">Vegan friendly</span>
+                    <span class="tag">Terrasse</span>
+                </div>
+                <p class="shop-description">
+                    Cette adresse rÃ©cente a rapidement conquis le quartier de La Villette. Le concept est simple mais efficace : un excellent cafÃ©, des laits vÃ©gÃ©taux de qualitÃ© (avoine, amande), et une petite carte de plats sains et savoureux. La grande terrasse qui donne sur le canal de l'Ourcq est un atout majeur aux beaux jours. L'Ã©quipe jeune et souriante crÃ©e une atmosphÃ¨re chaleureuse qui donne envie de s'attarder.
+                </p>
+                <div class="shop-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Adresse</span>
+                        <span class="detail-value">12 quai de la Loire, 75019</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Horaires</span>
+                        <span class="detail-value">Tous les jours 9h-19h</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Prix moyen</span>
+                        <span class="detail-value">CafÃ© 3.50â‚¬ Â· Bowl 12â‚¬</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Ambiance</span>
+                        <span class="detail-value">DÃ©contractÃ©e, vue canal</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Highlight Quote -->
+        <aside class="highlight-quote">
+            <blockquote>
+                "Le 19e a trouvÃ© son identitÃ© cafÃ© : exigeante sur la qualitÃ©, dÃ©contractÃ©e dans l'ambiance."
+            </blockquote>
+            <cite>Paris19, 2026</cite>
+        </aside>
+
+        <!-- Coffee Shop 4 -->
+        <article class="shop-card">
+            <div class="shop-image">â˜•</div>
+            <div class="shop-content">
+                <div class="shop-header">
+                    <h2 class="shop-name">Fragments</h2>
+                    <p class="shop-neighborhood">MouzaÃ¯a</p>
+                </div>
+                <div class="shop-tags">
+                    <span class="tag">CafÃ© de quartier</span>
+                    <span class="tag">Librairie</span>
+                    <span class="tag">Cosy</span>
+                </div>
+                <p class="shop-description">
+                    Plus qu'un simple cafÃ©, Fragments est un vÃ©ritable lieu de vie du quartier. L'espace combine cafÃ© de qualitÃ© et librairie indÃ©pendante, crÃ©ant une atmosphÃ¨re unique propice Ã  la flÃ¢nerie littÃ©raire. Les fauteuils confortables, les Ã©tagÃ¨res remplies de livres soigneusement choisis, et le cafÃ© bien prÃ©parÃ© en font l'adresse idÃ©ale pour une aprÃ¨s-midi tranquille. RÃ©guliÃ¨rement, des lectures et rencontres avec des auteurs y sont organisÃ©es.
+                </p>
+                <div class="shop-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Adresse</span>
+                        <span class="detail-value">8 rue de MouzaÃ¯a, 75019</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Horaires</span>
+                        <span class="detail-value">Mar-Sam 10h-19h, Dim 11h-18h</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Prix moyen</span>
+                        <span class="detail-value">CafÃ© 3.20â‚¬ Â· ThÃ© 4â‚¬</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Ambiance</span>
+                        <span class="detail-value">Intimiste, bibliothÃ¨que</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Paris19 - Guide de l'est parisien</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

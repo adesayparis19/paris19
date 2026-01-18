@@ -1,0 +1,13 @@
+{
+  "id": "noa-cafe",
+  "name": "Noa Café",
+  "neighborhood": "Jourdain",
+  "description": "Le petit nouveau du quartier (fin 2024) cultive une esthétique scandinave minimaliste avec ses tons clairs et son mobilier en bois blond. Cafés de spécialité, matcha, chocolat chaud et douceurs maison dans une ambiance apaisante. L'équipe jeune et passionnée soigne chaque détail.",
+  "address": "6 rue Melingue, 75019",
+  "metro": "Jourdain",
+  "hours": "Lun-Dim 8h30-18h",
+  "tags": ["Scandinave", "Brunch", "Nouveau 2024"],
+  "priority": "2",
+  "ambiance": "Hygge, minimaliste",
+  "section": "19e"
+}

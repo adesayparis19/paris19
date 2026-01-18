@@ -1,0 +1,13 @@
+{
+  "id": "koni-coffee",
+  "name": "Koni Coffee",
+  "neighborhood": "Belleville (20e, frontière 19e)",
+  "description": "À la frontière du 19e et 20e, ce minuscule coffee shop de 20m² installé dans une ancienne laverie dégage une ambiance Brooklyn assumée. Cafés Terres de Café impeccablement préparés. La spécialité \"L'Edith\" (espresso + crème à la pistache, hommage à Piaf) et le cookie chocolat noir fleur de sel sont légendaires.",
+  "address": "70 rue de Belleville, 75020",
+  "metro": "Jourdain, Pyrénées",
+  "hours": "Lun-Ven 8h30-17h30 · Sam-Dim 9h-18h",
+  "tags": ["Brooklyn", "Terres de Café", "Cookie légendaire"],
+  "priority": "2",
+  "ambiance": "Branchée, Brooklyn",
+  "section": "proximite"
+}

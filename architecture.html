@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture du 19e - Paris19</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beige-light: #F5F1E8;
+            --beige-warm: #E8DCC8;
+            --green-sage: #8B9D83;
+            --green-deep: #5A6B52;
+            --terracotta: #C87B5A;
+            --charcoal: #2C2C2C;
+            --white: #FFFFFF;
+            --gold: #D4AF37;
+            --blue-steel: #4A6B8A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: var(--beige-light);
+            color: var(--charcoal);
+            line-height: 1.8;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--beige-warm);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--terracotta);
+        }
+
+        .page-header {
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--blue-steel) 0%, #5A7A9A 100%);
+            color: var(--white);
+            padding: 5rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 3rem;
+            transition: gap 0.3s ease;
+        }
+
+        .back-link:hover {
+            gap: 1rem;
+        }
+
+        .intro-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .legend {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 4px;
+            margin-bottom: 3rem;
+            border: 1px solid var(--beige-warm);
+        }
+
+        .legend h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .legend-items {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .building-card {
+            background-color: var(--white);
+            border-radius: 4px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--beige-warm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .building-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .building-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+
+        .building-title-group {
+            flex: 1;
+        }
+
+        .building-stars {
+            color: var(--gold);
+            font-size: 1.3rem;
+            white-space: nowrap;
+        }
+
+        .building-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.9rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: var(--charcoal);
+        }
+
+        .building-architect {
+            color: var(--blue-steel);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .building-year {
+            color: var(--green-deep);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .building-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+        }
+
+        .building-description p {
+            margin-bottom: 1rem;
+        }
+
+        .building-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        .building-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--beige-warm);
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .info-label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--green-deep);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            color: var(--charcoal);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background-color: var(--charcoal);
+            color: var(--beige-light);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .building-card {
+                padding: 1.5rem;
+            }
+
+            .building-header {
+                flex-direction: column;
+            }
+
+            .building-name {
+                font-size: 1.6rem;
+            }
+
+            .building-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Paris19</a>
+            <ul class="nav-links">
+                <li><a href="index.html#decouvrir">DÃ©couvrir</a></li>
+                <li><a href="index.html#vivre">Vivre</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Architecture</h1>
+        <p>Du nÃ©oclassicisme au modernisme, les bÃ¢timents remarquables du 19e arrondissement</p>
+    </header>
+
+    <main class="content-container">
+        <a href="index.html#decouvrir" class="back-link">â† Retour aux parcours</a>
+
+        <p class="intro-text">
+            Le 19e arrondissement est un musÃ©e d'architecture Ã  ciel ouvert. Du nÃ©oclassicisme de Ledoux Ã  la modernitÃ© de Jean Nouvel, en passant par l'Ã©clectisme du Second Empire et les audaces du XXe siÃ¨cle, l'arrondissement illustre deux siÃ¨cles d'Ã©volution architecturale. DÃ©couvrez les bÃ¢timents qui ont marquÃ© le paysage urbain.
+        </p>
+
+        <div class="legend">
+            <h3>LÃ©gende des prioritÃ©s</h3>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <span class="stars">â­â­â­</span>
+                    <span>Incontournable</span>
+                </div>
+                <div class="legend-item">
+                    <span class="stars">â­â­</span>
+                    <span>RecommandÃ©</span>
+                </div>
+                <div class="legend-item">
+                    <span class="stars">â­</span>
+                    <span>Pour les passionnÃ©s</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Building 1: Philharmonie -->
+        <article class="building-card">
+            <div class="building-header">
+                <div class="building-title-group">
+                    <h2 class="building-name">Philharmonie de Paris</h2>
+                    <p class="building-architect">Architecte : Jean Nouvel</p>
+                    <p class="building-year">InaugurÃ©e en 2015 Â· Architecture contemporaine</p>
+                </div>
+                <div class="building-stars">â­â­â­</div>
+            </div>
+            <div class="building-description">
+                <p>
+                    La Philharmonie de Paris est l'Å“uvre phare de l'architecture contemporaine dans le 19e. ConÃ§ue par Jean Nouvel et inaugurÃ©e le 14 janvier 2015, elle s'impose comme une "petite montagne" scintillante au cÅ“ur du parc de La Villette. Culminant Ã  52 mÃ¨tres de hauteur, le bÃ¢timent dialogue avec les Buttes-Chaumont toutes proches. Sa faÃ§ade spectaculaire est composÃ©e de 340 000 plaques de fonte d'aluminium formant des motifs d'oiseaux rÃ©pÃ©tÃ©s.
+                </p>
+                <p>
+                    Ã€ l'intÃ©rieur, l'architecture se veut rÃ©solument futuriste : la salle de concert symphonique de 2 400 places prÃ©sente une acoustique exceptionnelle avec des spectateurs "suspendus dans l'espace" sur de longs balcons Ã©voquant des "nappes immatÃ©rielles de musique et de lumiÃ¨re". La terrasse publique Ã  37 mÃ¨tres offre une vue panoramique spectaculaire sur Paris et sa banlieue nord-est. Le projet, longtemps controversÃ© pour ses dÃ©passements budgÃ©taires, est aujourd'hui reconnu comme une prouesse architecturale majeure.
+                </p>
+            </div>
+            <div class="building-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">221 avenue Jean-JaurÃ¨s, Parc de La Villette</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° Porte de Pantin (ligne 5)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Surface</span>
+                    <span class="info-value">19 800 mÂ² Â· Hauteur 52m</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Visite</span>
+                    <span class="info-value">Terrasse accessible Â· Concerts et musÃ©e</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Building 2: CitÃ© des Sciences -->
+        <article class="building-card">
+            <div class="building-header">
+                <div class="building-title-group">
+                    <h2 class="building-name">CitÃ© des Sciences et de l'Industrie</h2>
+                    <p class="building-architect">Architecte : Adrien Fainsilber</p>
+                    <p class="building-year">InaugurÃ©e en 1986 Â· High-Tech / Reconversion</p>
+                </div>
+                <div class="building-stars">â­â­â­</div>
+            </div>
+            <div class="building-description">
+                <p>
+                    La CitÃ© des Sciences est une prouesse de reconversion architecturale. Adrien Fainsilber a transformÃ© l'ancien abattoir inachevÃ© (construction stoppÃ©e en 1974) en un parallÃ©lÃ©pipÃ¨de monumental de 250 mÃ¨tres de long, 150 mÃ¨tres de large et 50 mÃ¨tres de haut. InaugurÃ©e le 13 mars 1986 par FranÃ§ois Mitterrand, c'est le premier Grand Projet de l'Ã¨re Mitterrand achevÃ© et l'un des plus grands musÃ©es scientifiques d'Europe.
+                </p>
+                <p>
+                    L'architecture joue sur les contrastes entre massivitÃ© du bÃ©ton et lÃ©gÃ¨retÃ© du verre. Les trois serres monumentales en verre, les faÃ§ades-rideaux, et les poutres alvÃ©olaires de 35 mÃ¨tres de portÃ©e crÃ©ent une impression de transparence et de fluiditÃ©. L'ensemble s'articule autour de l'eau (bassins rÃ©flÃ©chissants) et de la lumiÃ¨re naturelle. La GÃ©ode attenante (36 mÃ¨tres de diamÃ¨tre), sphÃ¨re parfaite de 6 433 triangles d'acier inoxydable poli, complÃ¨te cette composition architecturale unique. Fainsilber reÃ§ut le Grand Prix national de l'Architecture en 1986 pour cette rÃ©alisation.
+                </p>
+            </div>
+            <div class="building-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">30 avenue Corentin-Cariou</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° Porte de la Villette (ligne 7)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Dimensions</span>
+                    <span class="info-value">250m x 150m x 50m</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Style</span>
+                    <span class="info-value">High-Tech, reconversion industrielle</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Building 3: SiÃ¨ge PCF -->
+        <article class="building-card">
+            <div class="building-header">
+                <div class="building-title-group">
+                    <h2 class="building-name">SiÃ¨ge du Parti Communiste FranÃ§ais</h2>
+                    <p class="building-architect">Architecte : Oscar Niemeyer (collaboration Jean ProuvÃ©)</p>
+                    <p class="building-year">1971-1980 Â· Modernisme brÃ©silien</p>
+                </div>
+                <div class="building-stars">â­â­â­</div>
+            </div>
+            <div class="building-description">
+                <p>
+                    Le siÃ¨ge du PCF est l'Å“uvre majeure en France du grand architecte brÃ©silien Oscar Niemeyer, crÃ©ateur de Brasilia. EsquissÃ© en 1965, construit entre 1968 et 1971 (la coupole achevÃ©e en 1979-1980), c'est un manifeste architectural moderniste. Le bÃ¢timent ondulant en forme de "S", avec ses faÃ§ades de verre fumÃ© sur mur-rideau de Jean ProuvÃ©, repose sur seulement cinq piliers en bÃ©ton massif, donnant l'impression de flotter au-dessus du sol.
+                </p>
+                <p>
+                    La coupole blanche iconique, qui surplombe la salle du Conseil national (250 places), reprÃ©sente selon Niemeyer le ventre d'une femme enceinte, symbole de fÃ©conditÃ© des idÃ©es. Son plafond est constituÃ© de milliers de plaquettes mÃ©talliques blanches verticales qui, au-delÃ  de l'esthÃ©tique, assurent une acoustique exceptionnelle. ClassÃ© Monument Historique en 2007, l'Ã©difice est devenu "Espace Niemeyer", lieu culturel et Ã©vÃ©nementiel tout en abritant toujours le siÃ¨ge du parti.
+                </p>
+            </div>
+            <div class="building-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">2 place du Colonel Fabien</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° Colonel Fabien (ligne 2)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Protection</span>
+                    <span class="info-value">Monument Historique (2007)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Visite</span>
+                    <span class="info-value">Expositions temporaires dans l'Espace Niemeyer</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Building 4: Rotonde -->
+        <article class="building-card">
+            <div class="building-header">
+                <div class="building-title-group">
+                    <h2 class="building-name">Rotonde de La Villette (BarriÃ¨re Saint-Martin)</h2>
+                    <p class="building-architect">Architecte : Claude-Nicolas Ledoux</p>
+                    <p class="building-year">1785-1788 Â· NÃ©oclassicisme</p>
+                </div>
+                <div class="building-stars">â­â­â­</div>
+            </div>
+            <div class="building-description">
+                <p>
+                    La Rotonde de La Villette est l'un des quatre pavillons d'octroi de Ledoux subsistant Ã  Paris. Chef-d'Å“uvre du nÃ©oclassicisme, elle tÃ©moigne de l'ambition de Ledoux de donner une dignitÃ© architecturale monumentale aux Ã©difices utilitaires. Construite entre 1785 et 1788 dans le cadre de l'enceinte des Fermiers gÃ©nÃ©raux, elle servait Ã  percevoir les taxes sur les marchandises entrant dans Paris.
+                </p>
+                <p>
+                    Son architecture se distingue par son portique Ã  colonnes doriques supportant un entablement classique, surmontÃ© d'une rotonde centrale. Ce bÃ¢timent a connu de multiples vies : grenier Ã  sel (1865-1921), casernement de la garde (1830-1860), et abrita les services des Canaux de Paris (bÃ¢timent accolÃ© de 1882). Monument historique, elle accueille aujourd'hui des Ã©vÃ©nements culturels et marque l'entrÃ©e du bassin de La Villette place de la Bataille de Stalingrad.
+                </p>
+            </div>
+            <div class="building-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">Place de la Bataille de Stalingrad</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° Stalingrad (lignes 2, 5, 7)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Date</span>
+                    <span class="info-value">1785-1788</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Style</span>
+                    <span class="info-value">NÃ©oclassicisme, Architecture des LumiÃ¨res</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Building 5: Mairie -->
+        <article class="building-card">
+            <div class="building-header">
+                <div class="building-title-group">
+                    <h2 class="building-name">Mairie du 19e arrondissement</h2>
+                    <p class="building-architect">Architectes : Gabriel Davioud et Jules Bourdais</p>
+                    <p class="building-year">1876-1878 Â· Style Louis XIII</p>
+                </div>
+                <div class="building-stars">â­â­</div>
+            </div>
+            <div class="building-description">
+                <p>
+                    La mairie du 19e arrondissement, place Armand-Carrel (anciennement place Roger-Madec), fait face au parc des Buttes-Chaumont. ConÃ§ue par Gabriel Davioud, architecte municipal prolifique du Second Empire, en collaboration avec Jules Bourdais, elle fut achevÃ©e en 1878. Le bÃ¢timent s'inscrit dans le style nÃ©o-Louis XIII alors en vogue pour les mairies parisiennes : brique et pierre, pavillon central encadrÃ© de deux ailes, toiture Ã  la Mansart.
+                </p>
+                <p>
+                    La faÃ§ade du pavillon central est ornÃ©e de sculptures allÃ©goriques : "L'Approvisionnement en eau" d'Aristide Croisy et "L'Approvisionnement en bÃ©tail" de Georges ClÃ¨re, rappelant les deux piliers Ã©conomiques du 19e (canaux et abattoirs). Ã€ l'intÃ©rieur, l'escalier d'honneur prÃ©sente un plafond peint par DiogÃ¨ne Maillart reprÃ©sentant "La Ville de Paris instruisant ses enfants". Henri Gervex est l'auteur du tableau de la salle des mariages. L'Ã©difice tÃ©moigne du talent de Davioud pour l'ornement et les dÃ©tails.
+                </p>
+            </div>
+            <div class="building-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">5-7 place Armand-Carrel</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° Buttes-Chaumont, LaumiÃ¨re (ligne 7bis)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Architecte</span>
+                    <span class="info-value">Gabriel Davioud (1824-1881)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Visite</span>
+                    <span class="info-value">Services municipaux Â· Mariages</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Building 6: CitÃ© de la Musique -->
+        <article class="building-card">
+            <div class="building-header">
+                <div class="building-title-group">
+                    <h2 class="building-name">CitÃ© de la Musique (Philharmonie 2)</h2>
+                    <p class="building-architect">Architecte : Christian de Portzamparc</p>
+                    <p class="building-year">InaugurÃ©e en 1995 Â· Postmodernisme</p>
+                </div>
+                <div class="building-stars">â­â­</div>
+            </div>
+            <div class="building-description">
+                <p>
+                    La CitÃ© de la Musique, conÃ§ue par Christian de Portzamparc (Prix Pritzker 1994), a Ã©tÃ© inaugurÃ©e en janvier 1995. Elle complÃ¨te le pÃ´le musical du parc de La Villette avec un auditorium de 900 places, un musÃ©e de la musique, et le Conservatoire national supÃ©rieur de musique et de danse de Paris. L'architecture postmoderne de Portzamparc joue sur la fragmentation des volumes et la diversitÃ© des matÃ©riaux.
+                </p>
+                <p>
+                    Le bÃ¢timent se compose de plusieurs Ã©lÃ©ments distincts articulÃ©s autour d'une rue intÃ©rieure : l'auditorium en forme d'amphithÃ©Ã¢tre grec, le musÃ©e aux faÃ§ades variÃ©es, les salles de pratique musicale. Cette composition urbaine crÃ©e un dialogue avec le parc et la Grande Halle voisine. Aujourd'hui appelÃ©e "Philharmonie 2" depuis l'ouverture de la Philharmonie de Jean Nouvel, elle programme jazz, musiques du monde, pop, rock, Ã©lectroniques â€“ en complÃ©ment de la programmation classique de sa voisine.
+                </p>
+            </div>
+            <div class="building-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">221 avenue Jean-JaurÃ¨s, Parc de La Villette</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° Porte de Pantin (ligne 5)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Fonction</span>
+                    <span class="info-value">Auditorium, musÃ©e, conservatoire</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Visite</span>
+                    <span class="info-value">Concerts, musÃ©e de la musique</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Building 7: Parc de La Villette -->
+        <article class="building-card">
+            <div class="building-header">
+                <div class="building-title-group">
+                    <h2 class="building-name">Parc de La Villette & Folies</h2>
+                    <p class="building-architect">Architecte : Bernard Tschumi</p>
+                    <p class="building-year">1982-1998 Â· DÃ©constructivisme</p>
+                </div>
+                <div class="building-stars">â­â­</div>
+            </div>
+            <div class="building-description">
+                <p>
+                    Le parc de La Villette (55 hectares) est l'Å“uvre de l'architecte suisse Bernard Tschumi, laurÃ©at du concours international en 1982. C'est un manifeste du dÃ©constructivisme et de l'architecture postmoderne. Tschumi rejette la notion traditionnelle de parc et propose un systÃ¨me de points, lignes et surfaces qui organise l'espace : les "folies" (26 structures rouges de 10m de cÃ´tÃ© rÃ©parties selon une grille de 120m), les galeries couvertes, et les surfaces thÃ©matiques.
+                </p>
+                <p>
+                    Les folies rouges, structures cubiques dÃ©construites, sont devenues l'emblÃ¨me du parc. Chacune a une fonction diffÃ©rente (kiosque, cafÃ©, atelier) tout en respectant la mÃªme grille gÃ©omÃ©trique de base. Cette approche radicale transforme le parc en un espace urbain actif plutÃ´t qu'en un jardin contemplatif traditionnel. Le parc accueille la Grande Halle, la CitÃ© des Sciences, la Philharmonie, le ZÃ©nith, et de nombreux jardins thÃ©matiques.
+                </p>
+            </div>
+            <div class="building-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">Avenue Jean-JaurÃ¨s / Corentin-Cariou</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° Porte de Pantin, Porte de la Villette</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Surface</span>
+                    <span class="info-value">55 hectares Â· 26 folies</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Style</span>
+                    <span class="info-value">DÃ©constructivisme, architecture paysagÃ¨re</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Building 8: Le 104 -->
+        <article class="building-card">
+            <div class="building-header">
+                <div class="building-title-group">
+                    <h2 class="building-name">Le Centquatre (104)</h2>
+                    <p class="building-architect">Reconversion : Atelier Novembre</p>
+                    <p class="building-year">1874 (Pompes FunÃ¨bres) Â· Reconversion 2008</p>
+                </div>
+                <div class="building-stars">â­â­</div>
+            </div>
+            <div class="building-description">
+                <p>
+                    Le 104 occupe l'ancien Ã©tablissement municipal des Pompes FunÃ¨bres de Paris, construit en 1874. Ces 39 000 mÂ² d'architecture industrielle en brique abritaient ateliers de fabrication de cercueils, stockage de matÃ©riel funÃ©raire et Ã©curies. FermÃ© en 1997, le site fut brillamment reconverti entre 2004 et 2008 par les architectes Atelier Novembre en espace culturel et artistique.
+                </p>
+                <p>
+                    La reconversion prÃ©serve l'essentiel de la structure industrielle d'origine â€“ halles mÃ©talliques, verriÃ¨res, briques apparentes, cours intÃ©rieures â€“ tout en insÃ©rant des Ã©quipements contemporains. Les vastes espaces permettent d'accueillir rÃ©sidences d'artistes, ateliers de crÃ©ation, expositions, spectacles, commerces et restaurants. Cette transformation exemplaire d'un patrimoine industriel atypique en fait un lieu vivant et crÃ©atif, emblÃ¨me de la renaissance culturelle du 19e.
+                </p>
+            </div>
+            <div class="building-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">5 rue Curial / 104 rue d'Aubervilliers</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° Riquet, CrimÃ©e (ligne 7)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Surface</span>
+                    <span class="info-value">39 000 mÂ²</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Visite</span>
+                    <span class="info-value">AccÃ¨s gratuit Â· Expositions, ateliers</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Building 9: Grande Halle -->
+        <article class="building-card">
+            <div class="building-header">
+                <div class="building-title-group">
+                    <h2 class="building-name">Grande Halle de La Villette</h2>
+                    <p class="building-architect">Architecte original : Jules de MÃ©rindol Â· Reconversion : Reichen & Robert</p>
+                    <p class="building-year">1867 Â· Reconversion 1983-1985</p>
+                </div>
+                <div class="building-stars">â­â­</div>
+            </div>
+            <div class="building-description">
+                <p>
+                    Ancienne halle aux bÅ“ufs du marchÃ© aux bestiaux, la Grande Halle (245m x 85m) est un chef-d'Å“uvre de l'architecture mÃ©tallique du XIXe siÃ¨cle. ConÃ§ue par Jules de MÃ©rindol, Ã©lÃ¨ve de Baltard, et inaugurÃ©e en 1867, sa structure de fer et de fonte rappelle les pavillons des Halles de Paris. Elle pouvait accueillir plus d'un millier de bovins jusqu'Ã  la fermeture des abattoirs en 1974.
+                </p>
+                <p>
+                    ClassÃ©e Monument Historique en 1979, elle Ã©chappa de justesse Ã  la dÃ©molition. La rÃ©habilitation exemplaire par Bernard Reichen et Philippe Robert (1983-1985) conserve la charpente mÃ©tallique d'origine tout en crÃ©ant un vaste espace culturel polyvalent de 20 000 mÂ². Les architectes ont su respecter l'identitÃ© industrielle du lieu tout en l'adaptant Ã  ses nouvelles fonctions : concerts, salons, expositions, Ã©vÃ©nements majeurs.
+                </p>
+            </div>
+            <div class="building-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">211 avenue Jean-JaurÃ¨s, Parc de La Villette</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° Porte de Pantin (ligne 5)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Dimensions</span>
+                    <span class="info-value">245m x 85m Â· 20 000 mÂ²</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Protection</span>
+                    <span class="info-value">Monument Historique (1979)</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Building 10: Temple Sibylle -->
+        <article class="building-card">
+            <div class="building-header">
+                <div class="building-title-group">
+                    <h2 class="building-name">Temple de la Sibylle (Buttes-Chaumont)</h2>
+                    <p class="building-architect">Architecte : Gabriel Davioud</p>
+                    <p class="building-year">1869 Â· NÃ©oclassicisme romantique</p>
+                </div>
+                <div class="building-stars">â­â­</div>
+            </div>
+            <div class="building-description">
+                <p>
+                    Le temple de la Sibylle, perchÃ© au sommet de l'Ã®le artificielle de 30 mÃ¨tres du parc des Buttes-Chaumont, est l'Å“uvre de Gabriel Davioud, architecte municipal du Second Empire. Construit en 1869, ce kiosque nÃ©oclassique s'inspire du temple de Vesta Ã  Tivoli (Italie), monument antique que Davioud a Ã©tudiÃ© lors de son sÃ©jour Ã  la Villa MÃ©dicis.
+                </p>
+                <p>
+                    Le temple circulaire Ã  colonnes corinthiennes offre un belvÃ©dÃ¨re spectaculaire avec vue panoramique sur Paris, Montmartre et le SacrÃ©-CÅ“ur. Accessible par la passerelle suspendue de 65 mÃ¨tres ou le pont des SuicidÃ©s (22m), il est l'Ã©lÃ©ment le plus emblÃ©matique et photographiÃ© du parc. Cette folie nÃ©oclassique illustre le goÃ»t du Second Empire pour les rÃ©fÃ©rences Ã  l'AntiquitÃ© rÃ©interprÃ©tÃ©es dans un esprit romantique.
+                </p>
+            </div>
+            <div class="building-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">Parc des Buttes-Chaumont (sommet de l'Ã®le)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° Buttes-Chaumont, Botzaris (ligne 7bis)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Hauteur</span>
+                    <span class="info-value">30 mÃ¨tres (sommet Ã®le)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Inspiration</span>
+                    <span class="info-value">Temple de Vesta, Tivoli (Italie)</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Building 11: Ã‰glise Saint-Jean-Baptiste de Belleville -->
+        <article class="building-card">
+            <div class="building-header">
+                <div class="building-title-group">
+                    <h2 class="building-name">Ã‰glise Saint-Jean-Baptiste de Belleville</h2>
+                    <p class="building-architect">Architecte : Jean-Baptiste Lassus</p>
+                    <p class="building-year">1854-1859 Â· NÃ©ogothique</p>
+                </div>
+                <div class="building-stars">â­</div>
+            </div>
+            <div class="building-description">
+                <p>
+                    L'Ã©glise Saint-Jean-Baptiste de Belleville, situÃ©e au sommet de la colline de Belleville (139 rue de Belleville), est l'Å“uvre de l'architecte Jean-Baptiste Lassus, spÃ©cialiste de l'architecture nÃ©ogothique et restaurateur de Notre-Dame de Paris avec Viollet-le-Duc. Construite entre 1854 et 1859, elle domine le quartier de Belleville de sa flÃ¨che de 58 mÃ¨tres.
+                </p>
+                <p>
+                    L'Ã©glise adopte un style nÃ©ogothique rigoureux inspirÃ© du XIIIe siÃ¨cle, avec nef Ã  trois vaisseaux, transept, chÅ“ur et dÃ©ambulatoire. La faÃ§ade occidentale prÃ©sente un portail sculptÃ© surmontÃ© d'une rosace, flanquÃ© de deux tours. L'intÃ©rieur conserve de beaux vitraux du XIXe siÃ¨cle. L'Ã©glise tÃ©moigne du dÃ©veloppement urbain de Belleville au Second Empire et de la volontÃ© de doter les nouveaux quartiers populaires d'Ã©difices religieux de qualitÃ©.
+                </p>
+            </div>
+            <div class="building-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">139 rue de Belleville</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° Jourdain (ligne 11)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Hauteur flÃ¨che</span>
+                    <span class="info-value">58 mÃ¨tres</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Style</span>
+                    <span class="info-value">NÃ©ogothique, XIIIe siÃ¨cle</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Building 12: Pont levant rue de CrimÃ©e -->
+        <article class="building-card">
+            <div class="building-header">
+                <div class="building-title-group">
+                    <h2 class="building-name">Pont Levant de la rue de CrimÃ©e</h2>
+                    <p class="building-architect">IngÃ©nieur : ?</p>
+                    <p class="building-year">1885 Â· Architecture mÃ©tallique</p>
+                </div>
+                <div class="building-stars">â­</div>
+            </div>
+            <div class="building-description">
+                <p>
+                    Le pont levant de la rue de CrimÃ©e, construit en 1885, est l'un des derniers ponts mobiles en activitÃ© Ã  Paris. Ce pont mÃ©tallique de 105 mÃ¨tres enjambe le canal de l'Ourcq et se lÃ¨ve encore plusieurs fois par semaine pour laisser passer pÃ©niches et bateaux de plaisance. C'est un tÃ©moignage exceptionnel de l'architecture mÃ©tallique industrielle du XIXe siÃ¨cle et de l'activitÃ© fluviale intense du quartier.
+                </p>
+                <p>
+                    Le mÃ©canisme de levage, actionnÃ© depuis une cabine de contrÃ´le, permet aux deux travÃ©es centrales du pont de pivoter verticalement grÃ¢ce Ã  un systÃ¨me de contrepoids. ClassÃ© Monument Historique, ce pont constitue un Ã©lÃ©ment patrimonial majeur du canal de l'Ourcq. Il offre un spectacle fascinant lors de son ouverture et rappelle l'importance historique du transport fluvial dans le dÃ©veloppement du 19e arrondissement.
+                </p>
+            </div>
+            <div class="building-info">
+                <div class="info-item">
+                    <span class="info-label">Localisation</span>
+                    <span class="info-value">Rue de CrimÃ©e, canal de l'Ourcq</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">AccÃ¨s</span>
+                    <span class="info-value">MÂ° LaumiÃ¨re, CrimÃ©e (ligne 7bis)</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Longueur</span>
+                    <span class="info-value">105 mÃ¨tres</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Protection</span>
+                    <span class="info-value">Monument Historique</span>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Paris19 - Guide de l'est parisien</p>
+        </div>
+    </footer>
+</body>
+</html>
