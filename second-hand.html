@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutiques Seconde Main - Paris 19</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fdfcf9;
+        }
+        
+        header {
+            background-color: #16a085;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            background-color: white;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            background-color: #1abc9c;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            margin: 3rem 0 1.5rem 0;
+            font-size: 1.5rem;
+        }
+        
+        .shop {
+            background-color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .shop:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .shop h2 {
+            color: #16a085;
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .address {
+            color: #666;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .description {
+            margin-bottom: 1rem;
+        }
+        
+        .description-fr {
+            margin-bottom: 1.5rem;
+        }
+        
+        .description-en {
+            color: #555;
+            font-style: italic;
+            padding-left: 1rem;
+            border-left: 3px solid #1abc9c;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tag {
+            background-color: #e8f8f5;
+            color: #16a085;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+        
+        .proximity-badge {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-left: 1rem;
+        }
+        
+        footer {
+            background-color: #16a085;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>👗 Boutiques Seconde Main</h1>
+        <p>Les meilleures adresses vintage et fripe du 19ème et alentours</p>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <h2>Mode durable et pièces uniques</h2>
+            <p>Le 19e arrondissement et ses quartiers voisins offrent de belles opportunités pour chiner des vêtements et accessoires de seconde main. Des grandes structures solidaires aux boutiques vintage pointues, voici notre sélection pour adopter une mode plus responsable tout en dénichant des pièces uniques.</p>
+        </div>
+
+        <h3 class="section-title">📍 Dans le 19e arrondissement</h3>
+
+        <!-- EMMAÜS DÉFI RUE RIQUET -->
+        <div class="shop">
+            <h2>Emmaüs Défi - Rue Riquet</h2>
+            <p class="address">40 rue Riquet, 75019 Paris</p>
+            <div class="description">
+                <div class="description-fr">
+                    <strong>🇫🇷 </strong>Emmaüs Défi rue Riquet est une véritable caverne d'Ali Baba de la seconde main. Cet immense espace propose un choix impressionnant de vêtements, meubles, livres, vaisselle et objets en tous genres. Les prix sont très accessibles et la rotation des stocks constante, ce qui permet de faire de belles trouvailles à chaque visite. L'endroit a une dimension solidaire forte, puisque les achats soutiennent l'association Emmaüs dans ses actions d'insertion professionnelle. C'est l'adresse parfaite pour chiner sans se ruiner, tout en donnant du sens à ses achats. Le choix est tel qu'il faut prévoir du temps pour bien explorer les rayons.
+                </div>
+                <div class="description-en">
+                    <strong>🇬🇧 </strong>Emmaüs Défi rue Riquet is a true treasure trove of second-hand goods. This huge space offers an impressive selection of clothing, furniture, books, tableware and all kinds of objects. Prices are very affordable and stock rotation is constant, allowing for great finds on each visit. The place has a strong solidarity dimension, as purchases support the Emmaüs association in its professional integration actions. It's the perfect address for bargain hunting without breaking the bank, while giving meaning to your purchases. The selection is such that you need to allow time to properly explore the aisles.
+                </div>
+            </div>
+            <div class="tags">
+                <span class="tag">Vêtements</span>
+                <span class="tag">Meubles</span>
+                <span class="tag">Livres</span>
+                <span class="tag">Vaisselle</span>
+                <span class="tag">Prix mini</span>
+                <span class="tag">Solidaire</span>
+            </div>
+        </div>
+
+        <!-- EMMAÜS DÉFI CENTQUATRE -->
+        <div class="shop">
+            <h2>Emmaüs Défi - Le Centquatre</h2>
+            <p class="address">104 rue d'Aubervilliers, 75019 Paris</p>
+            <div class="description">
+                <div class="description-fr">
+                    <strong>🇫🇷 </strong>Situé au cœur du Centquatre, ce deuxième Emmaüs Défi du 19e propose lui aussi une sélection généreuse de vêtements et objets de seconde main, avec en prime un rayon mobilier et appareils photo argentiques. L'emplacement au sein de ce lieu culturel emblématique ajoute une dimension particulière à l'expérience de chine. On y trouve de tout : des pièces vintage aux vêtements plus récents, des accessoires, des livres, et même des trésors insoupçonnés. La démarche reste résolument solidaire, avec des prix très doux qui permettent à tous de s'habiller et s'équiper de manière responsable.
+                </div>
+                <div class="description-en">
+                    <strong>🇬🇧 </strong>Located in the heart of Centquatre, this second Emmaüs Défi in the 19th also offers a generous selection of second-hand clothing and objects, plus a furniture and film cameras section. The location within this iconic cultural space adds a special dimension to the thrifting experience. You'll find everything: vintage pieces to more recent clothing, accessories, books, and even unexpected treasures. The approach remains resolutely supportive, with very gentle prices that allow everyone to dress and equip themselves responsibly.
+                </div>
+            </div>
+            <div class="tags">
+                <span class="tag">Vêtements</span>
+                <span class="tag">Mobilier</span>
+                <span class="tag">Photo argentique</span>
+                <span class="tag">Livres</span>
+                <span class="tag">Lieu culturel</span>
+                <span class="tag">Solidaire</span>
+            </div>
+        </div>
+
+        <h3 class="section-title">🚶 À proximité (10-15 min)</h3>
+
+        <!-- URBAN VINTAGE PARIS -->
+        <div class="shop">
+            <h2>Urban Vintage Paris <span class="proximity-badge">11e arr.</span></h2>
+            <p class="address">Paris 11e (proche République)</p>
+            <div class="description">
+                <div class="description-fr">
+                    <strong>🇫🇷 </strong>Urban Vintage Paris est une friperie créée en 2016 par Cynthia, passionnée de mode vintage des années 80 et 90. Plus qu'une simple boutique, c'est un véritable lieu de rencontre où la mode rassemble des gens de tous horizons. Chaque pièce est choisie avec soin et classée par thème : sweats, pulls imprimés, jeans Levi's, vestes, robes en velours, accessoires en cuir, lunettes de soleil vintage, bijoux de corps. Cynthia propose également des services de conseil en style personnalisé pour vous aider à trouver la pièce parfaite. L'ambiance est conviviale, les réassorts quotidiens, et l'accueil chaleureux. Une adresse idéale pour mixer les styles et créer un look unique.
+                </div>
+                <div class="description-en">
+                    <strong>🇬🇧 </strong>Urban Vintage Paris is a thrift store created in 2016 by Cynthia, passionate about vintage fashion from the 80s and 90s. More than just a shop, it's a true meeting place where fashion brings together people from all backgrounds. Each piece is carefully chosen and organized by theme: sweatshirts, printed sweaters, Levi's jeans, jackets, velvet dresses, leather accessories, vintage sunglasses, body jewelry. Cynthia also offers personalized styling services to help you find the perfect piece. The atmosphere is friendly, restocking is daily, and the welcome is warm. An ideal address for mixing styles and creating a unique look.
+                </div>
+            </div>
+            <div class="tags">
+                <span class="tag">Vintage 80s-90s</span>
+                <span class="tag">Conseil personnalisé</span>
+                <span class="tag">Accessoires</span>
+                <span class="tag">Bijoux</span>
+                <span class="tag">Style curated</span>
+            </div>
+        </div>
+
+        <!-- KILIWATCH -->
+        <div class="shop">
+            <h2>Kiliwatch <span class="proximity-badge">2e arr.</span></h2>
+            <p class="address">64 rue Tiquetonne, 75002 Paris (Étienne Marcel)</p>
+            <div class="description">
+                <div class="description-fr">
+                    <strong>🇫🇷 </strong>Kiliwatch est une institution parisienne de la fripe, située près des Halles. Ce grand espace propose un savant mélange entre neuf et seconde main, avec une partie du magasin dédiée aux vêtements de marques à inspiration vintage et une large section friperie où l'on trouve une belle sélection triée. Kiliwatch a même créé sa propre marque de vêtements vintage. On y trouve de tout : bottes à partir de 30€, chemises dès 10€, jeans à partir de 20€, et de nombreuses pièces uniques. La sélection est soignée, même si certaines pièces peuvent être un peu chères. C'est l'endroit parfait pour les amateurs de vintage qui cherchent à la fois qualité et originalité.
+                </div>
+                <div class="description-en">
+                    <strong>🇬🇧 </strong>Kiliwatch is a Parisian thrift institution, located near Les Halles. This large space offers a clever mix of new and second-hand, with part of the store dedicated to vintage-inspired brand clothing and a large thrift section where you'll find a nice curated selection. Kiliwatch has even created its own vintage clothing brand. You'll find everything: boots from €30, shirts from €10, jeans from €20, and many unique pieces. The selection is refined, although some pieces can be a bit pricey. It's the perfect place for vintage lovers looking for both quality and originality.
+                </div>
+            </div>
+            <div class="tags">
+                <span class="tag">Vintage + Neuf</span>
+                <span class="tag">Marque propre</span>
+                <span class="tag">Jeans Levi's</span>
+                <span class="tag">Grande sélection</span>
+                <span class="tag">Halles</span>
+            </div>
+        </div>
+
+        <!-- FREE'P'STAR -->
+        <div class="shop">
+            <h2>Free'p'Star <span class="proximity-badge">Marais 4e</span></h2>
+            <p class="address">Marais, 75004 Paris (plusieurs boutiques)</p>
+            <div class="description">
+                <div class="description-fr">
+                    <strong>🇫🇷 </strong>Free'p'Star est une référence incontournable de la fripe parisienne, avec plusieurs boutiques concentrées dans le Marais. Ces espaces proposent une sélection variée de vêtements de seconde main à des prix accessibles. On y trouve aussi bien des pièces vintages que des vêtements plus récents de marques connues (Zara, Mango, Sandro, Maje) à prix cassés. L'atmosphère peut être un peu dense et l'espace parfois exigu, mais c'est aussi ce qui fait le charme de la chasse aux trésors. Il faut fouiller, prendre son temps, mais les bonnes affaires sont au rendez-vous. Une adresse idéale pour renouveler sa garde-robe sans se ruiner.
+                </div>
+                <div class="description-en">
+                    <strong>🇬🇧 </strong>Free'p'Star is an essential reference in Parisian thrifting, with several shops concentrated in the Marais. These spaces offer a varied selection of second-hand clothing at affordable prices. You'll find both vintage pieces and more recent clothing from well-known brands (Zara, Mango, Sandro, Maje) at bargain prices. The atmosphere can be a bit dense and the space sometimes cramped, but that's also part of the treasure hunt's charm. You have to dig, take your time, but good deals are there. An ideal address for renewing your wardrobe without breaking the bank.
+                </div>
+            </div>
+            <div class="tags">
+                <span class="tag">Marais</span>
+                <span class="tag">Prix accessibles</span>
+                <span class="tag">Marques connues</span>
+                <span class="tag">Vintage + Récent</span>
+                <span class="tag">Chasse au trésor</span>
+            </div>
+        </div>
+
+        <!-- GUERRISOL -->
+        <div class="shop">
+            <h2>Guerrisol <span class="proximity-badge">Plusieurs adresses</span></h2>
+            <p class="address">Notamment : 96 Bd de Barbès (18e), 45 Bd de la Chapelle (18e/10e)</p>
+            <div class="description">
+                <div class="description-fr">
+                    <strong>🇫🇷 </strong>Guerrisol est une chaîne de friperies bien implantée à Paris, avec plusieurs boutiques dont certaines proches du 19e arrondissement (Barbès, Chapelle). Le concept est simple : des vêtements de seconde main vendus au poids ou à l'unité, avec des prix très compétitifs. On peut y trouver aussi bien un lycra léopard qu'une chemise Ralph Lauren au même tarif. La sélection est aléatoire et les boutiques ne sont pas toujours très attrayantes, mais c'est l'endroit parfait pour dénicher des pièces basiques ou des manteaux à petit prix. Il faut accepter de fouiller et ne pas s'attendre à du vintage pointu, mais les bonnes affaires sont réelles.
+                </div>
+                <div class="description-en">
+                    <strong>🇬🇧 </strong>Guerrisol is a well-established thrift chain in Paris, with several shops including some close to the 19th arrondissement (Barbès, Chapelle). The concept is simple: second-hand clothing sold by weight or per item, with very competitive prices. You can find both leopard print lycra and a Ralph Lauren shirt at the same price. The selection is random and the shops are not always very attractive, but it's the perfect place to find basic pieces or coats at low prices. You have to be willing to dig and not expect curated vintage, but the good deals are real.
+                </div>
+            </div>
+            <div class="tags">
+                <span class="tag">Prix mini</span>
+                <span class="tag">Manteaux</span>
+                <span class="tag">Basiques</span>
+                <span class="tag">Plusieurs adresses</span>
+                <span class="tag">Proche 19e</span>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Paris19.fr - Guide des bonnes adresses du 19ème arrondissement</p>
+        <p>Dernière mise à jour : Mai 2026</p>
+    </footer>
+</body>
+</html>
