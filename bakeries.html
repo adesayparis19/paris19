@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boulangeries - Paris 19</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fdfcf9;
+        }
+        
+        header {
+            background-color: #d4a574;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .intro {
+            background-color: white;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .bakery {
+            background-color: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .bakery:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        
+        .bakery h2 {
+            color: #8b6914;
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .address {
+            color: #666;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .description {
+            margin-bottom: 1rem;
+        }
+        
+        .description-fr {
+            margin-bottom: 1.5rem;
+        }
+        
+        .description-en {
+            color: #555;
+            font-style: italic;
+            padding-left: 1rem;
+            border-left: 3px solid #d4a574;
+        }
+        
+        .specialty {
+            background-color: #fef5e7;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        footer {
+            background-color: #d4a574;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🥖 Boulangeries du 19ème</h1>
+        <p>Les meilleures adresses pour le pain et les pâtisseries</p>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <h2>Les boulangeries artisanales du 19e arrondissement</h2>
+            <p>Du levain naturel aux viennoiseries créatives, découvrez notre sélection des meilleures boulangeries du quartier. Ces artisans passionnés travaillent avec des farines de qualité, des fermentations longues et un savoir-faire exceptionnel.</p>
+        </div>
+
+        <!-- POMPETTE -->
+        <div class="bakery">
+            <h2>Pompette</h2>
+            <p class="address">44bis Rue de Meaux, 75019 Paris</p>
+            <div class="description">
+                <div class="description-fr">
+                    <strong>🇫🇷 </strong>Pompette, c'est l'histoire de trois sœurs — Victoire, Constance et Camille — qui ont ouvert une boulangerie provençale à Paris, portées par les souvenirs du four de leur grand-père. Ici, les recettes traditionnelles du Sud côtoient le savoir-faire artisanal parisien. Pissaladière croustillante, focaccia moelleuse, fougasse parfumée et flan à tomber : chaque produit est une invitation au voyage en Méditerranée. L'ambiance chaleureuse et les produits généreux en font une adresse incontournable du quartier. Une seconde boutique a même ouvert dans le 4e arrondissement, preuve du succès de ce concept authentique.
+                </div>
+                <div class="description-en">
+                    <strong>🇬🇧 </strong>Pompette is the story of three sisters — Victoire, Constance and Camille — who opened a Provençal bakery in Paris, inspired by memories of their grandfather's oven. Here, traditional Southern recipes meet Parisian artisanal expertise. Crispy pissaladière, soft focaccia, fragrant fougasse and irresistible flan: each product is an invitation to travel to the Mediterranean. The warm atmosphere and generous products make it an essential neighborhood address. A second shop has even opened in the 4th arrondissement, proof of the success of this authentic concept.
+                </div>
+            </div>
+            <div class="specialty">
+                <strong>Spécialités :</strong> Pissaladière, focaccia, fougasse, flan, financiers framboise
+            </div>
+        </div>
+
+        <!-- MILLIGRAMME -->
+        <div class="bakery">
+            <h2>Milligramme</h2>
+            <p class="address">3-5 Rue du Plateau, 75019 Paris</p>
+            <div class="description">
+                <div class="description-fr">
+                    <strong>🇫🇷 </strong>Florence et Jerry ont imaginé Milligramme comme une boulangerie résolument contemporaine, visible depuis la rue grâce à son laboratoire transparent. Les codes de l'époque y sont tous présents : farines locales moulues sur meule, levain naturel, fermentation patiente et respect du temps long. Le pain signature marie avec élégance sarrasin et seigle, agrémenté de graines de courge et de lin. Côté sucré, le New York Roll — cette viennoiserie star d'Instagram — attire tous les regards avec sa crème à la pistache, tandis que le maritozzo italien ravit les amateurs de douceurs généreuses. Une adresse qui séduit autant par la qualité que par l'esthétique.
+                </div>
+                <div class="description-en">
+                    <strong>🇬🇧 </strong>Florence and Jerry designed Milligramme as a resolutely contemporary bakery, visible from the street thanks to its transparent laboratory. All the hallmarks of modern baking are present: local stone-milled flours, natural sourdough, patient fermentation and respect for slow time. The signature bread elegantly combines buckwheat and rye, enhanced with pumpkin and flax seeds. On the sweet side, the New York Roll — this Instagram-famous pastry — attracts all eyes with its pistachio cream, while the Italian maritozzo delights lovers of generous treats. An address that seduces as much through quality as through aesthetics.
+                </div>
+            </div>
+            <div class="specialty">
+                <strong>Spécialités :</strong> Pain signature sarrasin-seigle, New York Roll pistache, maritozzo, cruffin mangue
+            </div>
+        </div>
+
+        <!-- GINKO -->
+        <div class="bakery">
+            <h2>Ginko Pâtisserie</h2>
+            <p class="address">33 rue des Alouettes, 75019 Paris</p>
+            <div class="description">
+                <div class="description-fr">
+                    <strong>🇫🇷 </strong>Ginko est née en avril 2022 de la rencontre entre Sayo Yamagata, Américaine d'origine japonaise formée à Ferrandi, et Othman El Ouraoui, pâtissier marocain passé par les plus grandes maisons parisiennes (Bristol, Plaza Athénée, Shangri-La). Ensemble, ils proposent une pâtisserie française enrichie d'influences japonaises et marocaines. Leurs créations signatures comme le Mont Fuji ou les Saveurs d'Orient séduisent par leur finesse et leur équilibre. Les viennoiseries sont exceptionnelles, et chaque produit est entièrement fait maison à partir d'ingrédients méticuleusement sélectionnés. Une pâtisserie multiculturelle qui fait honneur à la diversité et au savoir-faire.
+                </div>
+                <div class="description-en">
+                    <strong>🇬🇧 </strong>Ginko was born in April 2022 from the meeting between Sayo Yamagata, an American of Japanese origin trained at Ferrandi, and Othman El Ouraoui, a Moroccan pastry chef who has worked in the finest Parisian establishments (Bristol, Plaza Athénée, Shangri-La). Together, they offer French pastry enriched with Japanese and Moroccan influences. Their signature creations like Mont Fuji or Saveurs d'Orient seduce with their finesse and balance. The viennoiseries are exceptional, and every product is entirely homemade from meticulously selected ingredients. A multicultural pastry shop that honors diversity and craftsmanship.
+                </div>
+            </div>
+            <div class="specialty">
+                <strong>Spécialités :</strong> Mont Fuji, Saveurs d'Orient, tartes yuzu-citron, viennoiseries, flan vanille
+            </div>
+        </div>
+
+        <!-- PAINS -->
+        <div class="bakery">
+            <h2>Pains</h2>
+            <p class="address">95 rue de Meaux, 75019 Paris</p>
+            <div class="description">
+                <div class="description-fr">
+                    <strong>🇫🇷 </strong>Pains est une micro-boulangerie bio fondée en 2022 par Vanessa Dezallé, reconvertie dans la boulange après une carrière chez Nissan. Formée dans le Minervois auprès d'artisans passionnés, elle a créé ce petit laboratoire-boutique avec une philosophie claire : célébrer le monde agricole, travailler uniquement avec des farines bio d'exception et respecter la fermentation naturelle. Tous les pains sont au levain naturel, la fermentation se fait dans une ancienne armoire de pousse, et la gestion est pensée dans le respect des humains et de l'environnement. Les horaires sont particuliers (après-midi uniquement) mais la qualité exceptionnelle justifie largement le détour.
+                </div>
+                <div class="description-en">
+                    <strong>🇬🇧 </strong>Pains is an organic micro-bakery founded in 2022 by Vanessa Dezallé, who transitioned to baking after a career at Nissan. Trained in Minervois with passionate artisans, she created this small laboratory-shop with a clear philosophy: celebrate the agricultural world, work only with exceptional organic flours and respect natural fermentation. All breads are made with natural sourdough, fermentation happens in an old proofing cabinet, and management is designed with respect for people and the environment. The hours are particular (afternoons only) but the exceptional quality makes it well worth the detour.
+                </div>
+            </div>
+            <div class="specialty">
+                <strong>Spécialités :</strong> Pains 100% levain naturel, farines bio anciennes, brioches, goûters sains
+                <br><strong>Horaires :</strong> Lun-Ven 16h-20h, Sam 15h-19h
+            </div>
+        </div>
+
+        <!-- PARPAINS -->
+        <div class="bakery">
+            <h2>Parpains</h2>
+            <p class="address">30 rue Tandou, 75019 Paris</p>
+            <div class="description">
+                <div class="description-fr">
+                    <strong>🇫🇷 </strong>Parpains est un micro-fournil créé par Léa Bouvet et Romain Bosch, tous deux formés chez Mamiche et Fermentation Générale. Dans ce lieu au design soigné pensé par l'atelier d'architecture Superdétail (murs carrelés, sol en béton ciré, grande baie vitrée), ils proposent des pains 100% levain naturel à base de blés paysans, pétris à la main sans esbroufe. La sélection est volontairement restreinte mais d'une qualité irréprochable : pain de campagne croustillant et alvéolé, pain à l'huile d'olive moelleux, briochettes au chocolat, focaccia aérienne. L'endroit propose également une cave de vins naturels, faisant de Parpains un lieu hybride parfait pour les amateurs de fermentations.
+                </div>
+                <div class="description-en">
+                    <strong>🇬🇧 </strong>Parpains is a micro-bakery created by Léa Bouvet and Romain Bosch, both trained at Mamiche and Fermentation Générale. In this carefully designed space by architecture studio Superdétail (tiled walls, polished concrete floor, large bay window), they offer 100% natural sourdough breads made from peasant wheats, hand-kneaded without fuss. The selection is deliberately limited but of impeccable quality: crispy and airy country bread, soft olive oil bread, chocolate brioche buns, light focaccia. The place also offers a natural wine cellar, making Parpains a perfect hybrid space for fermentation enthusiasts.
+                </div>
+            </div>
+            <div class="specialty">
+                <strong>Spécialités :</strong> Pain de campagne au levain de seigle, pain à l'huile d'olive, briochettes chocolat, focaccia, cookies, vins naturels
+                <br><strong>Horaires :</strong> Mar-Sam 11h-19h
+            </div>
+        </div>
+
+        <!-- KOKO -->
+        <div class="bakery">
+            <h2>KOKO</h2>
+            <p class="address">38 rue Botzaris, 75019 Paris</p>
+            <div class="description">
+                <div class="description-fr">
+                    <strong>🇫🇷 </strong>KOKO est un lieu hybride qui excelle autant en tant que coffee shop qu'en boulangerie-pâtisserie. L'établissement propose des viennoiseries et pâtisseries travaillées avec une grande attention aux détails, dans une approche artisanale et soignée. L'ambiance décontractée invite à s'installer confortablement pour savourer un bon café accompagné de produits fraîchement préparés. La polyvalence de KOKO en fait une adresse précieuse du quartier, parfaite pour le petit-déjeuner, le brunch ou le goûter. Un endroit où la qualité des produits rivalise avec la convivialité de l'accueil.
+                </div>
+                <div class="description-en">
+                    <strong>🇬🇧 </strong>KOKO is a hybrid place that excels both as a coffee shop and as a bakery-pastry shop. The establishment offers viennoiseries and pastries crafted with great attention to detail, in an artisanal and refined approach. The relaxed atmosphere invites you to settle in comfortably to enjoy a good coffee accompanied by freshly prepared products. KOKO's versatility makes it a valuable neighborhood address, perfect for breakfast, brunch or afternoon tea. A place where product quality rivals the warmth of the welcome.
+                </div>
+            </div>
+            <div class="specialty">
+                <strong>Spécialités :</strong> Viennoiseries artisanales, pâtisseries, café de spécialité, brunch
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Paris19.fr - Guide des bonnes adresses du 19ème arrondissement</p>
+        <p>Dernière mise à jour : Mai 2026</p>
+    </footer>
+</body>
+</html>
